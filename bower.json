@@ -25,7 +25,7 @@
 	"dependencies": {
 		"polymer": "polymer/polymer#master",
 		"app-localize-behavior": "PolymerElements/app-localize-behavior#2.0-preview",
-		"font-roboto": "PolymerElements/font-roboto#2.0-preview",
+		"font-roboto": "PolymerElements/font-roboto#latest",
 		"iron-a11y-keys": "PolymerElements/iron-a11y-keys#2.0-preview",
 		"iron-ajax": "PolymerElements/iron-ajax#2.0-preview",
 		"iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
