@@ -26,7 +26,7 @@
 		"polymer": "polymer/polymer#master",
 		"app-localize-behavior": "PolymerElements/app-localize-behavior#2.0-preview",
 		"font-roboto": "PolymerElements/font-roboto#latest",
-		"iron-a11y-keys": "PolymerElements/iron-a11y-keys#latest",
+		"iron-a11y-keys": "phani1kumar/iron-a11y-keys#master",
 		"iron-ajax": "PolymerElements/iron-ajax#2.0-preview",
 		"iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
 		"iron-icon": "PolymerElements/iron-icon#2.0-preview",
