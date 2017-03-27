@@ -39,7 +39,7 @@
 		"paper-item": "PolymerElements/paper-item#2.0-preview",
 		"paper-listbox": "PolymerElements/paper-listbox#2.0-preview",
 		"paper-menu-button": "PolymerElements/paper-menu-button#2.0-preview",
-		"paper-swatch-picker": "PolymerElements/paper-swatch-picker#latest",
+		"paper-swatch-picker": "phani1kumar/paper-swatch-picker#master",
 		"paper-tooltip": "PolymerElements/paper-tooltip#2.0-preview",
 		"iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
 		"selection-mgr": "miztroh/selection-mgr#master",
