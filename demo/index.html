@@ -30,8 +30,22 @@
 		<!-- The imports below are just for use with this demo -->
 		<link rel="import" href="../../iron-ajax/iron-ajax.html">
 		<link rel="import" href="../../marked-element/marked-import.html">
+
+		<link rel="import" href="../../polymerfire/firebase-app.html">
+		<link rel="import" href="../../roo-login/roo-social-signup.html">
+		<link rel="import" href="../../roo-login/roo-login.html">
+
 	</head>
 	<body style="margin: 0;">
+		<firebase-app 
+			auth-domain="XXXXXXXXXXXX.com" 
+			database-url="https://XXXXX.firebaseio.com" 
+			api-key="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+			messaging-sender-id="XXXXXXXXXXXXXXXXXXXXXXX">
+		</firebase-app>
+		<test-profile-demo></test-profile-demo>
+		<roo-login></roo-login>
+		<roo-social-signup google facebook></roo-social-signup>
 		<wysiwyg-e style="width: 100vw; height: 100vh;" id="wysiwygE">
 			<wysiwyg-tool-bold></wysiwyg-tool-bold>
 			<wysiwyg-tool-italic></wysiwyg-tool-italic>
@@ -71,5 +85,50 @@
 				}
 			);
 		</script>
+
+	<dom-module id="test-profile-demo">
+      <template>
+        <style>
+          :host {
+            display: block;
+          }
+        </style>
+        
+      </template>
+      <script>
+        class TestProfileDemo extends ReduxMixin(Polymer.Element){
+          static get is() { return 'test-profile-demo'}
+          static get actions(){return AppActions;}
+          connectedCallback(){
+            super.connectedCallback();
+            this._loadDefaults();
+          }
+          _loadDefaults(){
+              firebase.database().ref("/public/defaults").once('value').then((data)=>{
+                  var defaultsObj = (data.val())?data.val():{};
+                  if(defaultsObj.menus)
+                    this.dispatch('setMenus',defaultsObj.menus);
+                  if(defaultsObj.languages)
+                    this.dispatch('setLanguages', defaultsObj.languages);
+                  if(defaultsObj.markets)
+                    this.dispatch('setMarkets', defaultsObj.markets);
+                  if(defaultsObj.social)
+                    this.dispatch('setSocialLinks', defaultsObj.social);
+                  if(defaultsObj.availableMarkets){
+                    this.dispatch('setAppAvailableMarkets',defaultsObj.availableMarkets);
+                  }
+                  var appData = {};
+                  if(defaultsObj.name) appData['name']= defaultsObj.name;
+                  if(defaultsObj.tagline) appData['tagline']= defaultsObj.tagline;
+                  if(defaultsObj.logo) appData["logo"]= defaultsObj.logo;
+                  this.dispatch('updateAppData', appData);
+              });
+          }
+
+        }
+        customElements.define(TestProfileDemo.is, TestProfileDemo);
+
+      </script>
+    </dom-module>
 	</body>
 </html>
