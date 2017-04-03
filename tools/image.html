@@ -14,6 +14,10 @@
 <link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../wysiwyg-tool.html">
 <link rel="import" href="../wysiwyg-localize.html">
+
+<link rel="import" href="../../paper-slider/paper-slider.html">
+<link rel="import" href="../../roo-image-library/roo-image-picker.html">
+
 <iron-iconset-svg size="24" name="wysiwyg-tool-image">
 	<svg>
 		<defs>
@@ -26,7 +30,20 @@
 <dom-module id="wysiwyg-tool-image">
 	<template>
 		<style include="iron-flex"></style>
-		<style include="wysiwyg-tool"></style>
+		<style include="wysiwyg-tool">
+			.caption {
+				padding-left: 12px;
+				color: #a0a0a0;
+			}
+			.mindim{
+				color: black;
+				min-width:200px;
+				min-height: 50px;
+			}		
+			paper-button{
+				color: black;
+			}
+		</style>
 		<paper-tooltip id="tooltip" for="button" position="[[tooltipPosition]]" offset="5">
 			<wysiwyg-localize language="[[language]]" resources="[[resources]]" string-key="Image"></wysiwyg-localize>
 			<span> (Shift + Alt + M)</span>
@@ -38,7 +55,12 @@
 			</paper-button>
 			<div style="padding: 8px 16px 18px 16px;">
 				<wysiwyg-localize language="[[language]]" resources="[[resources]]" string-key="URL" localized="{{_localizedUrl}}" hidden></wysiwyg-localize>
+				<roo-image-picker on-iron-select="_stopPropagation"  on-click="_stopPropagation"></roo-image-picker>
 				<paper-input label="[[_localizedUrl]]" always-float-label value="{{imageUrl}}" id="url"></paper-input>
+				<div class="mindim">
+                  <div>Image Scale: <span id="imageScaleLabel" class="caption">[[imageScale]]</span></div><br>
+                  <paper-slider id="imageScale" pin snaps min="20" max="1080" value="{{imageScale}}"></paper-slider>
+                </div>
 				<wysiwyg-localize language="[[language]]" resources="[[resources]]" string-key="Float" localized="{{_localizedFloat}}" hidden></wysiwyg-localize>
 				<paper-dropdown-menu label="[[_localizedFloat]]" always-float-label noink on-iron-select="_stopPropagation" on-click="_stopPropagation">
 					<paper-listbox selected="{{imageFloat}}" attr-for-selected="float">
@@ -97,6 +119,7 @@
 
 			static get properties () {
 				return {
+					imageScale: Number,
 					imageFloat: {
 						type: String,
 						value: 'none',
@@ -131,7 +154,9 @@
 
 			execCommand (event) {
 				if (this.disabled || !this.range0) return;
-				var imageUrl = this.imageUrl, imageFloat = this.imageFloat, target = event.composedPath()[0];
+				var scaledImageUrl = this.imageUrl;
+				scaledImageUrl += (this.imageScale)? "=s"+this.imageScale : ""
+				var imageUrl = scaledImageUrl, imageFloat = this.imageFloat, target = event.composedPath()[0];
 
 				if (this.$.updateInsert === target || this.$.updateInsert.root.contains(target)) {
 					this.$.dropdown.close();
@@ -237,5 +262,9 @@
 		}
 
 		customElements.define(WysiwygToolImage.is, WysiwygToolImage);
+
+		window.addEventListener('roo-image-selected', (event, val)=>{
+			document.querySelector('wysiwyg-tool-image').imageUrl=event.detail.url;
+		});
 	</script>
 </dom-module>
