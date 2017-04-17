@@ -55,7 +55,7 @@
 			</paper-button>
 			<div style="padding: 8px 16px 18px 16px;">
 				<wysiwyg-localize language="[[language]]" resources="[[resources]]" string-key="URL" localized="{{_localizedUrl}}" hidden></wysiwyg-localize>
-				<roo-image-picker on-iron-select="_stopPropagation"  on-click="_stopPropagation"></roo-image-picker>
+				<roo-image-picker picked-item="{{pickedItem}}" on-iron-select="_stopPropagation"  on-click="_stopPropagation"></roo-image-picker>
 				<paper-input label="[[_localizedUrl]]" always-float-label value="{{imageUrl}}" id="url"></paper-input>
 				<div class="mindim">
                   <div>Image Scale: <span id="imageScaleLabel" class="caption">[[imageScale]]</span></div><br>
@@ -119,6 +119,10 @@
 
 			static get properties () {
 				return {
+					pickedItem: {
+						type: Object,
+						observer: 'imagePicked'
+					},
 					imageScale: Number,
 					imageFloat: {
 						type: String,
@@ -151,7 +155,9 @@
 					}
 				};
 			}
-
+			imagePicked(pickedItem){
+				this.set('imageUrl', pickedItem.url);
+			}
 			execCommand (event) {
 				if (this.disabled || !this.range0) return;
 				var scaledImageUrl = this.imageUrl;
