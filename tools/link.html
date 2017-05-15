@@ -36,12 +36,12 @@
 			<paper-button disabled="[[disabled]]" id="button" slot="dropdown-trigger">
 				<iron-icon icon="wysiwyg-tool-link:icon"></iron-icon>
 			</paper-button>
-			<div style="padding: 8px 16px 18px 16px;">
+			<div style="padding: 8px 16px 18px 16px;" slot="dropdown-content">
 				<wysiwyg-localize language="[[language]]" resources="[[resources]]" string-key="URL" localized="{{_localizedUrl}}" hidden></wysiwyg-localize>
 				<paper-input label="[[_localizedUrl]]" always-float-label value="{{linkUrl}}" id="url"></paper-input>
 				<wysiwyg-localize language="[[language]]" resources="[[resources]]" string-key="Target" localized="{{_localizedTarget}}" hidden></wysiwyg-localize>
 				<paper-dropdown-menu label="[[_localizedTarget]]" always-float-label noink on-iron-select="_stopPropagation" on-click="_stopPropagation">
-					<paper-listbox class="dropdown-content" selected="{{linkTarget}}" attr-for-selected="target">
+					<paper-listbox class="dropdown-content" selected="{{linkTarget}}" attr-for-selected="target" slot="dropdown-content">
 						<paper-item target="_blank">_blank</paper-item>
 						<paper-item target="_self">_self</paper-item>
 						<paper-item target="_parent">_parent</paper-item>
@@ -65,7 +65,8 @@
 			attached () {
 				if (!this._handler) {
 					this._handler = function (event) {
-						if (!this.target.contains(event.target)) return;
+						var target = event.composedPath()[0];
+						if (!this.target.contains(target)) return;
 						event.preventDefault();
 	
 						setTimeout(
@@ -134,9 +135,9 @@
 
 			execCommand (event) {
 				if (this.disabled || !this.range0) return;
-				var linkUrl = this.linkUrl, linkTarget = this.linkTarget;
+				var linkUrl = this.linkUrl, linkTarget = this.linkTarget, target = event.composedPath()[0];
 
-				if (this.$.updateInsert.contains(event.target)) {
+				if (this.$.updateInsert.contains(target)) {
 					this.$.dropdown.close();
 
 					setTimeout(
@@ -157,16 +158,16 @@
 						}.bind(this),
 						10
 					);
-				} else if (this.$.remove.contains(event.target)) {
+				} else if (this.$.remove.contains(target)) {
 					if (this.selectedLink) {
 						this.selectedLink.outerHTML = this.selectedLink.innerHTML;
 						this._setSelectedLink(null);
 					}
 
 					this.$.dropdown.close();
-				} else if (this.$.close.contains(event.target)) {
+				} else if (this.$.close.contains(target)) {
 					this.$.dropdown.close();
-				} else if (this.$.button.contains(event.target)) {
+				} else if (this.$.button.contains(target)) {
 					if (this.selectedLink) {
 						this.linkUrl = this.selectedLink.href;
 						this.linkTarget = this.selectedLink.target || '_self';

@@ -28,12 +28,12 @@
 			<g id="scroll-up">
 				<path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
 			</g>
-      <g id="undo">
-        <path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"></path>
-      </g>
-      <g id="redo">
-        <path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"></path>
-      </g>
+			<g id="undo">
+				<path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"></path>
+			</g>
+			<g id="redo">
+				<path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"></path>
+			</g>
 		</defs>
 	</svg>
 </iron-iconset-svg>
@@ -44,7 +44,7 @@ Under the hood, it provides undo / redo history management, selection management
 and a toolbar that accepts child elements to provide editing capabilities.
 All the included tools are accessible via both the toolbar buttons and keyboard shortcuts.
 
-### Full toolbar example:
+### Usage:
 
 ```html
 <wysiwyg-e>
@@ -71,24 +71,24 @@ All the included tools are accessible via both the toolbar buttons and keyboard 
 
 ### Styling
 
-The following custom propeses and mixins are available for styling:
+The following CSS Custom Properties and CSS Mixins are available for styling:
 
 #### Font
 
-Custom property                         | Description                                        | Default
+CSS Custom Property                     | Description                                        | Default
 ----------------------------------------|----------------------------------------------------|---------------------------------------
 `--wysiwyg-font`                        | Font-family                                        | `Roboto`
 
 #### Toolbar
 
-Custom property                         | Description                                        | Default
+CSS Custom Property                     | Description                                        | Default
 ----------------------------------------|----------------------------------------------------|---------------------------------------
 `--wysiwyg-toolbar-background`          | Toolbar background style                           | `#2A9AF2`
 `--wysiwyg-toolbar-color`               | Toolbar text color                                 | `white`
 
 #### Tools
 
-Custom property                         | Description                                        | Default
+CSS Custom Property                     | Description                                        | Default
 ----------------------------------------|----------------------------------------------------|---------------------------------------
 `--wysiwyg-tool-icon-active-color`      | Tool close button color                            | `rgba(0, 0, 0, 0.5)`
 `--wysiwyg-tool-icon-disabled-color`    | Tool close button color                            | `rgba(255, 255, 255, 0.5)`
@@ -99,42 +99,32 @@ Custom property                         | Description                           
 
 #### Editable Content
 
-Custom property                         | Description                                        | Default
+CSS Mixin                               | Description                                        | Default
 ----------------------------------------|----------------------------------------------------|---------------------------------------
-`--wysiwyg-editable`                    | Mixin applied to the wysiwyg-e content             | `{}`
-`--wysiwyg-editable-placeholder`        | Mixin applied to the content placeholder           | `{}`
-`--wysiwyg-editable-blockquote`         | Mixen applied to Blockquote `<blockquote>`         | `{}`
-`--wysiwyg-editable-pre`                | Mixen applied to code `<code>`                     | `{}`
-`--wysiwyg-editable-p`                  | Mixen applied to paragraph `<p>`                   | `{}`
-`--wysiwyg-editable-h1`                 | Mixen applied to H1 `<h1>`                         | `{}`
-`--wysiwyg-editable-h2`                 | Mixen applied to H2 `<h2>`                         | `{}`
-`--wysiwyg-editable-h3`                 | Mixen applied to H3 `<h3>`                         | `{}`
-`--wysiwyg-editable-h4`                 | Mixen applied to H4 `<h4>`                         | `{}`
-`--wysiwyg-editable-h5`                 | Mixen applied to H5 `<h5>`                         | `{}`
-`--wysiwyg-editable-h6`                 | Mixen applied to H6 `<h6>`                         | `{}`
-`--wysiwyg-editable-ol`                 | Ordered List `<ol>`                                | `{padding-left: 30px;}`
-`--wysiwyg-editable-ul`                 | Unordered List `<ul>`                              | `{padding-left: 30px;}`
-`--wysiwyg-editable-li`                 | Mixen applied to `<li>`                            | `{}`
-`--wysiwyg-editable-a`                  | Link  `<a>`                                        | `{color: #2A9AF2;}`
-`--wysiwyg-editable-img`                | Mixen applied to `<img>`                           | `{}`
-`--wysiwyg-editable-b`                  | Mixen applied to `<b>`                             | `{}`
-`--wysiwyg-editable-u`                  | Mixen applied to `<u>`                             | `{}`
-`--wysiwyg-editable-i`                  | Mixen applied to `<i>`                             | `{}`
-`--wysiwyg-editable-strike`             | Mixen applied to `<strike>`                        | `{}`
-`--wysiwyg-editable-first-child`        | Mixin applied to editable first child              | `{}`
-`--wysiwyg-editable-last-child`         | Mixin applied to editable last child               | `{}`
-`--wysiwyg-editable-selection`          | Editable selection                                 | `{color: white; background: #2A9AF2;}`
-`--wysiwyg-html`                        | Mixin applied to the wysiwyg-e html content        | `{padding: 0 20px 20px 20px;}`
-`--wysiwyg-html-pre`                    | Html content `<pre>`                               | `{margin: 0;}`
-`--wysiwyg-html-code`                   | Html content `<code>`                              | `{display: block; display: block;}`
-
-#### HTML View
-
-Custom property                         | Description                                        | Default
-----------------------------------------|----------------------------------------------------|---------------------------------------
-`--wysiwyg-html`                        | Mixin applied to the wysiwyg-e html content        | `{padding: 0 20px 20px 20px;}`
-`--wysiwyg-html-pre`                    | Html content `<pre>`                               | `{margin: 0;}`
-`--wysiwyg-html-code`                   | Html content `<code>`                              | `{display: block; display: block;}`
+`--wysiwyg-editable`                    | Mixin applied to the `[contenteditable]`           | `{}`
+`--wysiwyg-editable-placeholder`        | Mixin applied to the placeholder                   | `{}`
+`--wysiwyg-editable-blockquote`         | Mixin applied to `<blockquote>`                    | `{}`
+`--wysiwyg-editable-indent`             | Mixin applied to <blockquote indent>`              | `{}`
+`--wysiwyg-editable-code`               | Mixin applied to `<code>`                          | `{}`
+`--wysiwyg-editable-p`                  | Mixin applied to `<p>`                             | `{}`
+`--wysiwyg-editable-h1`                 | Mixin applied to `<h1>`                            | `{}`
+`--wysiwyg-editable-h2`                 | Mixin applied to `<h2>`                            | `{}`
+`--wysiwyg-editable-h3`                 | Mixin applied to `<h3>`                            | `{}`
+`--wysiwyg-editable-h4`                 | Mixin applied to `<h4>`                            | `{}`
+`--wysiwyg-editable-h5`                 | Mixin applied to `<h5>`                            | `{}`
+`--wysiwyg-editable-h6`                 | Mixin applied to `<h6>`                            | `{}`
+`--wysiwyg-editable-ol`                 | Mixin applied to `<ol>`                            | `{}`
+`--wysiwyg-editable-ul`                 | Mixin applied to `<ul>`                            | `{}`
+`--wysiwyg-editable-li`                 | Mixin applied to `<li>`                            | `{}`
+`--wysiwyg-editable-a`                  | Mixin applied to `<a>`                             | `{}`
+`--wysiwyg-editable-img`                | Mixin applied to `<img>`                           | `{}`
+`--wysiwyg-editable-b`                  | Mixin applied to `<b>`                             | `{}`
+`--wysiwyg-editable-u`                  | Mixin applied to `<u>`                             | `{}`
+`--wysiwyg-editable-i`                  | Mixin applied to `<i>`                             | `{}`
+`--wysiwyg-editable-strike`             | Mixin applied to `<strike>`                        | `{}`
+`--wysiwyg-editable-first-child`        | Mixin applied to `:first-child`                    | `{}`
+`--wysiwyg-editable-last-child`         | Mixin applied to `:last-child`                     | `{}`
+`--wysiwyg-editable-selection`          | Mixin applied to the selection                     | `{}`
 
 ### Accessibility / Shortcut Keys
 `<wysiwyg-e>` implements key bindings to access commands.
@@ -207,12 +197,12 @@ Command                                 | Mac Shortcut                          
 				@apply --wysiwyg-editable-placeholder;
 			}
 
-			#editable :first-child {
+			#editable > :first-child {
 				margin-top: 0;
 				@apply --wysiwyg-editable-first-child;
 			}
 
-			#editable :last-child {
+			#editable > :last-child {
 				margin-bottom: 0;
 				@apply --wysiwyg-editable-last-child;
 			}
@@ -246,21 +236,29 @@ Command                                 | Mac Shortcut                          
 				@apply --wysiwyg-editable-img;
 			}
 
-			#editable blockquote {
+			#editable blockquote[blockquote] {
 				padding: 15px;
 				margin: 0;
 				border-left: 5px solid #eee;
 				@apply --wysiwyg-editable-blockquote;
 			}
 
+      #editable blockquote:not([blockquote]) {
+        padding: 0;
+        margin: 0 0 0 20px;
+        @apply --wysiwyg-editable-indent;
+      }
+
 			#editable code {
 				display: block;
-				padding: 16px;
+				padding: 10px;
+				margin: 10px 0;
 				line-height: 1.5;
 				background-color: #f7f7f7;
 				border-radius: 3px;
 				white-space: pre-wrap;
-				@apply --wysiwyg-editable-pre;
+				font-family: monospace;
+				@apply --wysiwyg-editable-code;
 			}
 
 			#editable p:first-child {
@@ -328,6 +326,7 @@ Command                                 | Mac Shortcut                          
 				line-height: 40px;
 				border-radius: 0px;
 				min-width: 40px;
+				min-height: 40px;
 				background: transparent;
 				text-transform: none;
 			}
@@ -355,6 +354,10 @@ Command                                 | Mac Shortcut                          
 
 				#layout[force-narrow] {
 					@apply --layout-horizontal;
+				}
+
+				#layout[force-narrow] #toolbar {
+					@apply --layout-vertical;
 				}
 
 				#layout[force-narrow] #toolbarLayout {
@@ -439,7 +442,7 @@ Command                                 | Mac Shortcut                          
 					}.bind(this);
 				}
 
-				window.removeEventListener('resize', this._resizeHandler);
+				window.addEventListener('resize', this._resizeHandler);
 
 				if (!this._keydownHandler) {
 					this._keydownHandler = function (event) {
@@ -511,7 +514,6 @@ Command                                 | Mac Shortcut                          
 
 				setTimeout(
 					function () {
-						this._resizeHandler();
 						this.updateTools();
 					}.bind(this),
 					100
@@ -527,6 +529,17 @@ Command                                 | Mac Shortcut                          
 			static get properties() {
 				return {
 					//
+					// Array of style types allowed by the sanitize method
+					//
+					allowedStyleTypes: {
+						type: Array,
+						value: function () {
+							return [
+								'text-align',
+								'color'
+							];
+						}
+					},
 					// Array of tagNames allowed by the sanitize method
 					//
 					allowedTagNames: {
@@ -776,7 +789,7 @@ Command                                 | Mac Shortcut                          
 						readOnly: true
 					},
 					//
-					// Whether placeholder should be shown.  Computed.
+					// Whether placeholder should be shown.	Computed.
 					//
 					showPlaceholder: {
 						type: Boolean,
@@ -864,17 +877,11 @@ Command                                 | Mac Shortcut                          
 
 							for (j = 0; j < styles.length; j += 1) {
 								if (styles[j]) {
-									var style = styles[j].split(':');
-
-									switch (style[0]) {
-										case 'text-align':
-										case 'color':
-											break;
-										default:
-											node.style[style[0]] = '';
-											if (this.debug) console.log(node, 'style: ' + style[0]);
-											sanitized = false;
-											break;
+									var style = styles[j].split(':')[0].trim();
+									if (this.allowedStyleTypes.indexOf(style) === -1) {
+										node.style[style] = '';
+										if (this.debug) console.log(node, 'style: ' + style);
+										sanitized = false;
 									}
 								}
 							}
@@ -968,6 +975,7 @@ Command                                 | Mac Shortcut                          
 			// Update tools properties
 			//
 			updateTools() {
+				if (this._resizeHandler) this._resizeHandler();
 				var now = new Date();
 
 				if (this._toolUpdateTimeout) {
@@ -1094,7 +1102,7 @@ Command                                 | Mac Shortcut                          
 			}
 
 			_scroll(dx) {
-				if (this.minWidth768px) {
+				if (!this.forceNarrow && this.minWidth768px) {
 					this._setScrollLeft(this.scrollLeft + dx);
 				} else {
 					this._setScrollTop(this.scrollTop + dx);
@@ -1102,7 +1110,7 @@ Command                                 | Mac Shortcut                          
 			}
 
 			_scrollNext() {
-				if (this.minWidth768px) {
+				if (!this.forceNarrow && this.minWidth768px) {
 					if (this.scrollLeft + this.scrollStep > this.scrollWidth) {
 						this._scroll(this.scrollWidth - this.scrollLeft);
 						this._onScrollButtonUp();
@@ -1125,7 +1133,7 @@ Command                                 | Mac Shortcut                          
 			}
 
 			_scrollPrevious() {
-				if (this.minWidth768px) {
+				if (!this.forceNarrow && this.minWidth768px) {
 					if (this.scrollLeft - this.scrollStep < 0) {
 						this._scroll(-this.scrollLeft);
 						this._onScrollButtonUp();

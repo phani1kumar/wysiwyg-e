@@ -79,11 +79,11 @@
 				max-width: 100%;
 			}
 
-      paper-listbox > paper-item {
-        padding: 8px;
+      paper-item {
+        padding: 8px 16px;
       }
 
-      paper-listbox > paper-item:hover {
+      paper-item:hover {
         cursor: pointer;
       }
 		</style>
@@ -103,20 +103,11 @@
 				}
 	
 				this.addEventListener('click', this._clickHandler);
-	
-				if (!this._mousedownHanlder) {
-					this._mousedownHandler = function (event) {
-						event.preventDefault();
-					}.bind(this);
-				}
-	
-				this.addEventListener('mousedown', this._mousedownHandler);
 			}
 	
 			disconnectedCallback() {
 				super.disconnectedCallback();
 				this.removeEventListener('click', this._clickHandler);
-				this.removeEventListener('mousedown', this._mousedownHandler);
 			}
 	
 			static get properties() {

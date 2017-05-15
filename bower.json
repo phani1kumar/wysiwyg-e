@@ -1,48 +1,78 @@
 {
-	"name": "wysiwyg-e",
-	"version": "2.0.0-preview",
-	"homepage": "https://github.com/miztroh/wysiwyg-e",
-	"authors": [
-		"Jonathan Cox <jonathan@teamcox.family>"
-	],
-	"description": "A what-you-see-is-what-you-get editor created with Polymer",
-	"main": "wysiwyg-e.html",
-	"moduleType": [],
-	"keywords": [
-		"polymer",
-		"web-components",
-		"wysiwyg",
-		"editor"
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-		"polymer": "polymer/polymer#master",
-		"app-localize-behavior": "PolymerElements/app-localize-behavior#2.0-preview",
-		"font-roboto": "PolymerElements/font-roboto#latest",
-		"iron-a11y-keys": "phani1kumar/iron-a11y-keys#master",
-		"iron-ajax": "PolymerElements/iron-ajax#2.0-preview",
-		"iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
-		"iron-icon": "PolymerElements/iron-icon#2.0-preview",
-		"iron-iconset-svg": "PolymerElements/iron-iconset-svg#2.0-preview",
-		"iron-media-query": "PolymerElements/iron-media-query#2.0-preview",
-		"paper-button": "PolymerElements/paper-button#2.0-preview",
-		"paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#2.0-preview",
-		"paper-icon-button": "PolymerElements/paper-icon-button#2.0-preview",
-		"paper-input": "PolymerElements/paper-input#2.0-preview",
-		"paper-item": "PolymerElements/paper-item#2.0-preview",
-		"paper-listbox": "PolymerElements/paper-listbox#2.0-preview",
-		"paper-menu-button": "PolymerElements/paper-menu-button#2.0-preview",
-		"paper-swatch-picker": "phani1kumar/paper-swatch-picker#master",
-		"paper-tooltip": "PolymerElements/paper-tooltip#2.0-preview",
-		"iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
-		"selection-mgr": "miztroh/selection-mgr#master",
-		"undo-mgr": "miztroh/undo-mgr#master"
-	}
+  "name": "wysiwyg-e",
+  "version": "2.0.0-preview",
+  "homepage": "https://github.com/miztroh/wysiwyg-e",
+  "authors": [
+    "Jonathan Cox <jonathan@teamcox.family>"
+  ],
+  "description": "A what-you-see-is-what-you-get editor created with Polymer",
+  "main": "wysiwyg-e.html",
+  "moduleType": [],
+  "keywords": [
+    "polymer",
+    "web-components",
+    "wysiwyg",
+    "editor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "polymer/polymer#master",
+    "app-localize-behavior": "PolymerElements/app-localize-behavior#2.0-preview",
+    "font-roboto": "PolymerElements/font-roboto#latest",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys#latest",
+    "iron-ajax": "PolymerElements/iron-ajax#2.0-preview",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
+    "iron-icon": "PolymerElements/iron-icon#2.0-preview",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#2.0-preview",
+    "iron-media-query": "PolymerElements/iron-media-query#2.0-preview",
+    "paper-button": "PolymerElements/paper-button#2.0-preview",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#2.0-preview",
+    "paper-icon-button": "PolymerElements/paper-icon-button#2.0-preview",
+    "paper-input": "PolymerElements/paper-input#2.0-preview",
+    "paper-item": "PolymerElements/paper-item#2.0-preview",
+    "paper-listbox": "PolymerElements/paper-listbox#2.0-preview",
+    "paper-menu-button": "PolymerElements/paper-menu-button#2.0-preview",
+    "paper-swatch-picker": "PolymerElements/paper-swatch-picker#latest",
+    "paper-tooltip": "PolymerElements/paper-tooltip#2.0-preview",
+    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
+    "selection-mgr": "miztroh/selection-mgr#master",
+    "undo-mgr": "miztroh/undo-mgr#master"
+  },
+  "resolutions": {
+    "iron-flex-layout": "2.0-preview",
+    "iron-icon": "2.0-preview",
+    "iron-iconset-svg": "2.0-preview",
+    "paper-item": "2.0-preview",
+    "paper-icon-button": "2.0-preview",
+    "paper-listbox": "2.0-preview",
+    "polymer": "master",
+    "paper-menu-button": "2.0-preview",
+    "iron-meta": "2.0-preview",
+    "iron-a11y-keys-behavior": "2.0-preview",
+    "paper-behaviors": "2.0-preview",
+    "iron-validatable-behavior": "2.0-preview",
+    "paper-styles": "2.0-preview",
+    "paper-ripple": "2.0-preview",
+    "iron-form-element-behavior": "2.0-preview",
+    "iron-behaviors": "2.0-preview",
+    "iron-menu-behavior": "2.0-preview",
+    "webcomponentsjs": "^v1.0.0-rc.5",
+    "iron-selector": "2.0-preview",
+    "iron-fit-behavior": "2.0-preview",
+    "iron-dropdown": "2.0-preview",
+    "iron-checked-element-behavior": "2.0-preview",
+    "neon-animation": "2.0-preview",
+    "iron-resizable-behavior": "2.0-preview",
+    "iron-overlay-behavior": "2.0-preview"
+  },
+  "devDependencies": {
+    "web-component-tester": "polymer/web-component-tester#v6.0.0-prerelease.9"
+  }
 }
