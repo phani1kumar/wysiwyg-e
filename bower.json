@@ -63,7 +63,7 @@
     "iron-form-element-behavior": "2",
     "iron-behaviors": "2",
     "iron-menu-behavior": "2",
-    "webcomponentsjs": "^v1.0.0-rc.5",
+    "webcomponentsjs": "^1.0.0",
     "iron-selector": "2",
     "iron-fit-behavior": "2",
     "iron-dropdown": "2",
